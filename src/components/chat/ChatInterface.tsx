@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import './chat-interface.scss';
 
@@ -43,6 +43,13 @@ interface ChatSession {
   modelSettings: ModelSettings;
 }
 
+const DEFAULT_MODEL_SETTINGS: ModelSettings = {
+  temperature: 0.7,
+  maxTokens: 2048,
+  topP: 0.9,
+  topK: 40
+};
+
 const ChatInterface: React.FC = () => {
   const [sessions, setSessions] = useState<ChatSession[]>([]);
   const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
@@ -53,7 +60,6 @@ const ChatInterface: React.FC = () => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const genAI = new GoogleGenerativeAI(API_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   const currentSession = sessions.find(s => s.id === currentSessionId);
 
@@ -65,25 +71,18 @@ const ChatInterface: React.FC = () => {
     scrollToBottom();
   }, [currentSession?.messages]);
 
-  const defaultModelSettings: ModelSettings = {
-    temperature: 0.7,
-    maxTokens: 2048,
-    topP: 0.9,
-    topK: 40
-  };
-
-  const createNewChat = () => {
+  const createNewChat = useCallback(() => {
     const newSession: ChatSession = {
       id: Date.now().toString(),
       name: `Chat ${sessions.length + 1}`,
       messages: [],
       createdAt: new Date(),
       systemPrompt: "You are a helpful AI assistant.",
-      modelSettings: { ...defaultModelSettings }
+      modelSettings: { ...DEFAULT_MODEL_SETTINGS }
     };
     setSessions(prev => [newSession, ...prev]);
     setCurrentSessionId(newSession.id);
-  };
+  }, [sessions.length]);
 
   const selectChat = (sessionId: string) => {
     setCurrentSessionId(sessionId);
