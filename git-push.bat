@@ -1,7 +1,7 @@
 @echo off
 echo Running Git Push Script for Live API Web Console
 echo ==========================================
-
+git branch -M main
 echo Setting remote repository to https://github.com/fenago/live...
 git remote remove origin 2>nul
 git remote add origin https://github.com/fenago/live.git
