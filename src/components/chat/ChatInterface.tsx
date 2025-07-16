@@ -185,7 +185,7 @@ const ChatInterface: React.FC = () => {
     if (sessions.length === 0) {
       createNewChat();
     }
-  }, [sessions.length]);
+  }, [sessions.length, createNewChat]);
 
   return (
     <div className="chat-interface">
