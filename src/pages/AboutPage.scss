@@ -1,0 +1,247 @@
+.about-page {
+  min-height: 100vh;
+  background: var(--Neutral-5);
+  color: var(--Neutral-80);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+  .about-header {
+    background: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    .back-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--Blue-500);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background: var(--Blue-600);
+      }
+
+      .material-symbols-outlined {
+        font-size: 1.2rem;
+      }
+    }
+
+    .mdc-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+  }
+
+  .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .about-content {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--Neutral-90);
+      margin: 0 0 0.5rem 0;
+      font-family: "Space Mono", monospace;
+      text-align: center;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: var(--Blue-500);
+      text-align: center;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    section {
+      margin-bottom: 3rem;
+
+      h2 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--Neutral-90);
+        margin: 0 0 1rem 0;
+        font-family: "Space Mono", monospace;
+        border-bottom: 2px solid var(--Blue-500);
+        padding-bottom: 0.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--Neutral-80);
+        margin: 1.5rem 0 0.75rem 0;
+      }
+
+      h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--Neutral-90);
+        margin: 0 0 0.5rem 0;
+      }
+
+      p {
+        line-height: 1.7;
+        color: var(--Neutral-70);
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+
+        li {
+          margin-bottom: 0.75rem;
+          line-height: 1.6;
+          color: var(--Neutral-70);
+
+          strong {
+            color: var(--Neutral-90);
+          }
+        }
+      }
+    }
+
+    .subsection {
+      margin: 2rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--Blue-200);
+    }
+
+    .priority-card {
+      background: var(--Neutral-5);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--Neutral-20);
+
+      h4 {
+        color: var(--Blue-600);
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .approach-list {
+      list-style: none;
+      padding: 0;
+
+      li {
+        background: var(--Neutral-5);
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        border-radius: 6px;
+        border-left: 4px solid var(--Blue-500);
+      }
+    }
+
+    .team-section {
+      .team-intro {
+        margin-bottom: 2rem;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .team-member {
+        background: var(--Neutral-5);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid var(--Neutral-20);
+
+        h4 {
+          color: var(--Blue-600);
+          margin-bottom: 0.25rem;
+        }
+
+        .role {
+          font-size: 0.9rem;
+          color: var(--Neutral-60);
+          font-weight: 500;
+          margin-bottom: 0.5rem;
+        }
+
+        .contribution {
+          font-size: 0.85rem;
+          color: var(--Neutral-70);
+          line-height: 1.5;
+          margin: 0;
+        }
+      }
+    }
+
+    .acknowledgments {
+      background: linear-gradient(135deg, var(--Blue-50) 0%, var(--Blue-100) 100%);
+      padding: 2rem;
+      border-radius: 8px;
+      margin: 3rem 0;
+
+      h2 {
+        border-bottom-color: white;
+      }
+
+      p {
+        color: var(--Neutral-90);
+        font-size: 1.05rem;
+      }
+    }
+
+    .footer-note {
+      text-align: center;
+      padding: 2rem 0 0 0;
+      border-top: 1px solid var(--Neutral-20);
+      margin-top: 3rem;
+
+      p {
+        color: var(--Neutral-60);
+        font-size: 0.95rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-container {
+      padding: 1rem;
+    }
+
+    .about-content {
+      padding: 1.5rem;
+
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .tagline {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
